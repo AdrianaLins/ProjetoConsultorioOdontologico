@@ -27,6 +27,7 @@ import com.projetoConsultorio.model.entities.Usuarios;
 import com.projetoConsultorio.repositories.LoginRepository;
 import com.projetoConsultorio.repositories.UsuarioRepository;
 
+
 @RestController
 @RequestMapping("/api/UsuarioConsultorioOdontologico")
 public class UsuarioController {

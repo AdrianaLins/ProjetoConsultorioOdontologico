@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.projetoConsultorio.model.entities.Funcionario;
+import com.projetoConsultorio.model.entities.Paciente;
 import com.projetoConsultorio.repositories.FuncionarioRepository;
 
 @RestController
@@ -26,7 +27,7 @@ public class FuncionarioController {
 	private FuncionarioRepository funcionarioRepositório;
 
 	// Inserindo ou Atualiza Funcionario
-	@RequestMapping(method = { RequestMethod.POST, RequestMethod.PUT})
+	@RequestMapping(method = { RequestMethod.POST, RequestMethod.PUT })
 	public @ResponseBody Funcionario insereFuncionario(@Valid Funcionario funcionario) {
 		funcionarioRepositório.save(funcionario);
 		return funcionario;
@@ -39,6 +40,11 @@ public class FuncionarioController {
 		return funcionarioRepositório.findAll();
 	}
 
+	// Retornado funcionário por nome
+	@GetMapping(path = "/nomeFuncionario/{parteNome}")
+	public Iterable<Funcionario> obterFuncionarioPorNome(@PathVariable String parteNome) {
+		return funcionarioRepositório.findByNomeContainingIgnoreCase(parteNome);
+	}
 
 	// Pesquisar por funcionário por ID
 	@GetMapping("/funcionario/buscaFuncionario/{id}")

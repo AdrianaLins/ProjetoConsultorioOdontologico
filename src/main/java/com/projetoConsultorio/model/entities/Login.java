@@ -1,7 +1,6 @@
 package com.projetoConsultorio.model.entities;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +16,7 @@ public class Login {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int codigo;
 	
-	@OneToOne(targetEntity = Usuarios.class, cascade = CascadeType.PERSIST)
+	@OneToOne(targetEntity = Usuarios.class)
 	@JoinColumn(name = "usuario_id")
 	private Usuarios usuario_id;
 
