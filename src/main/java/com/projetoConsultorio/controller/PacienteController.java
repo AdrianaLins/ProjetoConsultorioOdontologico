@@ -39,6 +39,12 @@ public class PacienteController {
 	public List<Paciente> listaPaciente() {
 		return pacienteRepository.findAll();
 	}
+	
+	//Retornado paciente por nome
+	@GetMapping(path = "/nome/{parteNome}")
+	public Iterable<Paciente> obterProdutosPorNome(@PathVariable String parteNome) {
+		return pacienteRepository.findByNomeContainingIgnoreCase(parteNome);
+	}
 
 
 	// Pesquisar por paciente por ID

@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
+
+
 
 
 @Entity
@@ -16,15 +18,18 @@ public class Usuarios {
 	private String nomeUsuario;
 	private String senhaUsuario;
 	private String tipoUsuario;
+	
 
 	public Usuarios() {
 
 	}
 
-	public Usuarios(String nomeUsuario, String senhaUsuario, String tipoUsuario) {
+	public Usuarios(int codigoUsuario, String nomeUsuario, String senhaUsuario, String tipoUsuario) {
+		this.codigoUsuario = codigoUsuario;
 		this.nomeUsuario = nomeUsuario;
 		this.senhaUsuario = senhaUsuario;
 		this.tipoUsuario = tipoUsuario;
+	
 	}
 
 	public int getCodigoUsuario() {
